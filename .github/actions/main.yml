@@ -1,0 +1,17 @@
+name: NPM Build/Lint
+
+permissions:
+  contents: read
+
+on: push
+
+jobs:
+  build_lint:
+    name: Build and Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - run: |
+          npm ci
+          npm run build
+          npm run lint
